@@ -17,11 +17,7 @@
             text-align: center;
             padding: 50px;
             overflow: hidden;
-            animation: backgroundPulse 5s infinite alternate;
-        }
-        @keyframes backgroundPulse {
-            from { filter: brightness(1); }
-            to { filter: brightness(1.2); }
+            transition: background 2s ease-in-out;
         }
         .container {
             background: rgba(255, 255, 255, 0.9);
@@ -76,19 +72,36 @@
             from { transform: translateY(100vh) scale(0.6); opacity: 1; }
             to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
+        .screen-full {
+            background: linear-gradient(120deg, red, pink);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            animation: fadeInScreen 2s ease-in-out;
+        }
+        @keyframes fadeInScreen {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Happy Chocolate Day 🍫</h1>
-        <p>I never meant to hurt you, I am truly sorry for my actions and promise to never repeat it.</p>
+        <p>I never meant to hurt you. I am truly sorry for my actions and promise to never repeat them.</p>
         <p>Please forgive me</p>
         <button class="btn" onclick="showLove()">Yes, I forgive you ❤️</button>
     </div>
     
     <script>
         function showLove() {
-            for (let i = 0; i < 40; i++) {
+            let screen = document.createElement("div");
+            screen.classList.add("screen-full");
+            document.body.appendChild(screen);
+            for (let i = 0; i < 100; i++) {
                 let heart = document.createElement("div");
                 heart.innerHTML = "❤️";
                 heart.classList.add("floating-heart");
