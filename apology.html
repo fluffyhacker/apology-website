@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        h1 {
+            color: red;
+        }
+        p {
+            font-size: 18px;
+        }
+        .btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: darkred;
+        }
+        .heart {
+            font-size: 50px;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>I'm Sorry, My Love 💔</h1>
+        <p>I never meant to hurt you. You mean the world to me, and I truly regret my actions.</p>
+        <p>Will you forgive me? 🥺</p>
+        <button class="btn" onclick="showLove()">Yes, I forgive you ❤️</button>
+        <div id="heart" class="heart" style="display: none;">❤️</div>
+    </div>
+    
+    <script>
+        function showLove() {
+            document.getElementById('heart').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
