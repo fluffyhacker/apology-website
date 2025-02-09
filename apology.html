@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sorry</title>
+    <title>Happy Chocolate Day Sweety</title>
     <style>
         body {
             background-color: pink;
+            background-image: url('https://cdn.pixabay.com/photo/2016/10/10/01/49/chocolate-1720610_1280.jpg'), url('https://cdn.pixabay.com/photo/2016/11/29/12/53/heart-1868193_1280.png');
+            background-size: cover, contain;
+            background-repeat: no-repeat, repeat;
+            background-position: center, center;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
+            overflow: hidden;
         }
         .container {
             background: white;
@@ -19,7 +24,7 @@
             display: inline-block;
         }
         h1 {
-            color: red;
+            color: brown;
         }
         p {
             font-size: 18px;
@@ -45,13 +50,29 @@
             from { transform: translateY(0); }
             to { transform: translateY(-10px); }
         }
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            color: red;
+            animation: floatUp 4s linear infinite;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>I'm Sorry, My Love 💔</h1>
-        <p>I never meant to hurt you. You mean the world to me, and I truly regret my actions.</p>
-        <p>Will you forgive me? 🥺</p>
+        <h1>Happy Chocolate Day 🍫❤️</h1>
+        <p>I never meant to hurt you. I will never repat it, and I truly regret my actions.</p>
+        <p>Please forgive me 🙏</p>
         <button class="btn" onclick="showLove()">Yes, I forgive you ❤️</button>
         <div id="heart" class="heart" style="display: none;">❤️</div>
     </div>
@@ -59,6 +80,15 @@
     <script>
         function showLove() {
             document.getElementById('heart').style.display = 'block';
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("floating-heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 4000);
+            }
         }
     </script>
 </body>
